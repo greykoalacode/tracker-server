@@ -1,3 +1,6 @@
+# Note
+This is an modified version of legacy project. Check the original project [here](https://github.com/greykoalacode/tracker-cracker)
+
 ## Motivation
 
 To solve the issue of noting workouts in notepad/ text-based apps
