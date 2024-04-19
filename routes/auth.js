@@ -100,7 +100,7 @@ router.post("/login", async (req, res) => {
     signed: false,
     domain: process.env.CLIENT_URL || "localhost:3000",
     httpOnly: true,
-    sameSite: "none"
+    sameSite: "None"
   });
   // .setHeader('Set-Cookie', `token=${token}`)
   return res.json({
