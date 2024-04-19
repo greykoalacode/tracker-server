@@ -96,11 +96,11 @@ router.post("/login", async (req, res) => {
 
   res.cookie("token",token, {
     expires: new Date(Date.now() + 15* 60000),
-    // secure: true,
-    // signed: false,
-    // domain: process.env.CLIENT_URL || "localhost:3000",
-    // httpOnly: true,
-    // sameSite: "none"
+    secure: true,
+    signed: false,
+    domain: process.env.CLIENT_URL || "localhost:3000",
+    httpOnly: true,
+    sameSite: "none"
   });
   // .setHeader('Set-Cookie', `token=${token}`)
   return res.json({
@@ -124,10 +124,10 @@ router.get("/logout", function (req, res) {
   }
   res.clearCookie("token", {
     path: "/",
-    // httpOnly: true,
-    // sameSite: "None",
-    // domain: process.env.CLIENT_URL || "localhost:3000",
-    // secure: true,
+    httpOnly: true,
+    sameSite: "None",
+    domain: process.env.CLIENT_URL || "localhost:3000",
+    secure: true,
   });
 
   return res.send("Logout Successful");
