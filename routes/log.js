@@ -125,6 +125,11 @@ router
           .send("Log for the particular date / user does not exist");
       }
 
+      if(!"workouts.exercise" in req.body){
+        return res.status(400)
+        .json({message: "Exercise is not mentioned"});
+      }
+
       // When a person wants to add the exercises in routine to their log right away.
       if ("addRoutine" in req.body) {
         const { routines } = req.body;
@@ -174,7 +179,7 @@ router
           path: "logs",
           populate: "workouts.exercise",
         });
-        return res.json(updatedUserLogs);
+        return res.json(updatedUserLogs.logs);
       }
 
       // If id is there
@@ -189,7 +194,7 @@ router
           path: "logs",
           populate: "workouts.exercise",
         });
-        return res.json(updatedUserLogs);
+        return res.json(updatedUserLogs.logs);
       } else {
         const changedLog = await Log.findOneAndUpdate(
           { _id: id, userID: _id },
@@ -201,7 +206,7 @@ router
           path: "logs",
           populate: "workouts.exercise",
         });
-        return res.json(updatedUserLogs);
+        return res.json(updatedUserLogs.logs);
       }
     } catch (error) {
       return res.send(error);

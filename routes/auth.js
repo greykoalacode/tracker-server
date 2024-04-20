@@ -98,7 +98,7 @@ router.post("/login", async (req, res) => {
     expires: new Date(Date.now() + 30* 60000),
     secure: true,
     // path: "/",
-    domain: process.env.CLIENT_URL || "localhost:3000",
+    domain: process.env.CLIENT_URL || "localhost",
     httpOnly: true,
     sameSite: "none"
   });
@@ -126,7 +126,7 @@ router.get("/logout", function (req, res) {
     // path: "/",
     httpOnly: true,
     sameSite: "none",
-    domain: process.env.CLIENT_URL || "localhost:3000",
+    domain: process.env.CLIENT_URL || "localhost",
     secure: true,
   });
 
