@@ -97,9 +97,11 @@ router.post("/login", async (req, res) => {
   res.cookie("token",token, {
     expires: new Date(Date.now() + 15* 60000),
     secure: true,
+    path: "/",
     domain: process.env.CLIENT_URL || "localhost:3000",
     httpOnly: true,
-    sameSite: "none"
+    secure: false,
+    sameSite: "lax"
   });
   // .setHeader('Set-Cookie', `token=${token}`)
   return res.json({
@@ -124,9 +126,9 @@ router.get("/logout", function (req, res) {
   res.clearCookie("token", {
     path: "/",
     httpOnly: true,
-    sameSite: "None",
+    sameSite: "lax",
     domain: process.env.CLIENT_URL || "localhost:3000",
-    secure: true,
+    secure: false,
   });
 
   return res.send("Logout Successful");
