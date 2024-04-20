@@ -95,9 +95,9 @@ router.post("/login", async (req, res) => {
   //  httpOnly: true
 
   res.cookie("token",token, {
-    expires: new Date(Date.now() + 15* 60000),
+    expires: new Date(Date.now() + 30* 60000),
     secure: true,
-    path: "/",
+    // path: "/",
     domain: process.env.CLIENT_URL || "localhost:3000",
     httpOnly: true,
     sameSite: "none"
@@ -123,7 +123,7 @@ router.get("/logout", function (req, res) {
     return res.status(401).send("Not Logged In");
   }
   res.clearCookie("token", {
-    path: "/",
+    // path: "/",
     httpOnly: true,
     sameSite: "none",
     domain: process.env.CLIENT_URL || "localhost:3000",
