@@ -32,7 +32,7 @@ app.use(
   })
 );
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://tracker-client-rho.vercel.app");
+  res.header("Access-Control-Allow-Origin", "tracker-client-rho.vercel.app/");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Max-Age", "1800");
