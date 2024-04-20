@@ -100,7 +100,6 @@ router.post("/login", async (req, res) => {
     path: "/",
     domain: process.env.CLIENT_URL || "localhost:3000",
     httpOnly: true,
-    secure: false,
     sameSite: "lax"
   });
   // .setHeader('Set-Cookie', `token=${token}`)
@@ -128,7 +127,7 @@ router.get("/logout", function (req, res) {
     httpOnly: true,
     sameSite: "lax",
     domain: process.env.CLIENT_URL || "localhost:3000",
-    secure: false,
+    secure: true,
   });
 
   return res.send("Logout Successful");
